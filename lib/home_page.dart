@@ -11,6 +11,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   final _index = 0; //메뉴를 담기 위한 변수
+  bool _isoutDoor = false;
+  bool _isDataSaver = false;
   //final String lastPlayed = "untitled song";
 
   @override
@@ -22,6 +24,7 @@ class _HomePage extends State<HomePage> {
       //중간
       body: Column(
         children: [
+          // 리:다이브
           AspectRatio(
             aspectRatio: 16 / 9, // 가로 16 : 세로 9 비율 유지
             child: Container(
@@ -54,6 +57,8 @@ class _HomePage extends State<HomePage> {
               ),
             ),
           ),
+
+          // 많이 들은 곡 + 최근 추가곡
           Row(
             children: [
               Expanded(
@@ -94,7 +99,6 @@ class _HomePage extends State<HomePage> {
                   ),
                 ),
               ),
-
               Expanded(
                 child: AspectRatio(
                   aspectRatio: 1.0, // 1:1 비율
@@ -134,6 +138,121 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
             ],
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 아웃도어(앨범 + 제목 가리기 모드)
+              Expanded(
+                child: AspectRatio(
+                  aspectRatio: 21 / 9,
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      bottom: 20,
+                      left: 20,
+                      right: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey, width: 2.0),
+                    ),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        setState(() {
+                          _isoutDoor = !_isoutDoor;
+                        });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Outdoor',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Switch(
+                            value: _isoutDoor,
+                            onChanged: (value) {
+                              setState(() {
+                                _isoutDoor = value;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // 저데이터 모드(음원 압축을 하건 뭐건 알아서 ㄱㄱ)
+              Expanded(
+                child: AspectRatio(
+                  aspectRatio: 21 / 9,
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      bottom: 20,
+                      left: 10,
+                      right: 20,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey, width: 2.0),
+                    ),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        setState(() {
+                          _isDataSaver = !_isDataSaver;
+                        });
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'DataSaver',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Switch(
+                            value: _isDataSaver,
+                            onChanged: (value) {
+                              setState(() {
+                                _isDataSaver = value;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          //뭐넣지(후보: 노래추가)
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey, width: 2.0),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
           ),
         ],
       ),

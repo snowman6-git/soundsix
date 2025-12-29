@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title}); //this를 걸어야 초기화가 됌
-  final String title; //그래야 파이널로 걸 수 있음
+  const HomePage({super.key});
   @override
   State<StatefulWidget> createState() {
     return _HomePage();
@@ -10,7 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
-  final _index = 0; //메뉴를 담기 위한 변수
   bool _isoutDoor = false;
   bool _isDataSaver = false;
   //final String lastPlayed = "untitled song";
@@ -18,9 +16,6 @@ class _HomePage extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //위
-      appBar: AppBar(title: Text(widget.title)),
-
       //중간
       body: Column(
         children: [
@@ -30,6 +25,7 @@ class _HomePage extends State<HomePage> {
             child: Container(
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey, width: 3.0),
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.black,
               ),
@@ -71,6 +67,7 @@ class _HomePage extends State<HomePage> {
                       right: 10,
                     ),
                     decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 3.0),
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.blue, // 눈에 띄게 색상 추가
                     ),
@@ -109,6 +106,7 @@ class _HomePage extends State<HomePage> {
                       right: 20,
                     ),
                     decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey, width: 3.0),
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.blue, // 눈에 띄게 색상 추가
                     ),
@@ -235,7 +233,7 @@ class _HomePage extends State<HomePage> {
                           ),
                           Switch(
                             value: _isDataSaver,
-                            activeTrackColor: Colors.green,
+                            activeTrackColor: Colors.lightGreen,
                             thumbIcon: WidgetStateProperty.resolveWith<Icon?>((Set<WidgetState> states) {
                               if (states.contains(WidgetState.selected)) {
                                 return const Icon(Icons.speed); // 꺼졌을 때 아이콘 (필요 없으면 null)
@@ -256,7 +254,6 @@ class _HomePage extends State<HomePage> {
               ),
             ],
           ),
-
           //뭐넣지(후보: 노래추가)
           Expanded(
             child: Container(
@@ -269,18 +266,7 @@ class _HomePage extends State<HomePage> {
           ),
         ],
       ),
-
       //밑
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _index, //현재 골라진 메뉴
-        type: BottomNavigationBarType.fixed, //3개 이상으로 하려면 필수
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'Song'),
-          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Playlist'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'My'),
-        ],
-      ),
     );
   }
 }

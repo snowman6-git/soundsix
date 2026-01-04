@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-import 'package:soundsix/song_page.dart';
+import 'song_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key, required this.title}); //this를 걸어야 초기화가 됌
@@ -15,10 +15,7 @@ class _MainPage extends State<MainPage> {
   int _currentIndex = 0;
 
   // 갈아끼울수 있는 페이지들(바텀 내비로)
-  final List<Widget> _children = [
-    const HomePage(),
-    const SongPage(),
-  ];
+  final List<Widget> _children = [const HomePage(), const SongPage()];
 
   @override
   Widget build(BuildContext context) {

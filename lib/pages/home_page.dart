@@ -183,11 +183,15 @@ class _HomePage extends State<HomePage> {
                                 _isoutDoor = value;
                               });
                             },
-                            thumbIcon: WidgetStateProperty.resolveWith<Icon?>((Set<WidgetState> states) {
+                            thumbIcon: WidgetStateProperty.resolveWith<Icon?>((
+                              Set<WidgetState> states,
+                            ) {
                               if (states.contains(WidgetState.selected)) {
                                 return const Icon(Icons.business); // 켜졌을 때 아이콘
                               }
-                              return const Icon(Icons.home); // 꺼졌을 때 아이콘 (필요 없으면 null)
+                              return const Icon(
+                                Icons.home,
+                              ); // 꺼졌을 때 아이콘 (필요 없으면 null)
                             }),
                           ),
                         ],
@@ -234,9 +238,13 @@ class _HomePage extends State<HomePage> {
                           Switch(
                             value: _isDataSaver,
                             activeTrackColor: Colors.lightGreen,
-                            thumbIcon: WidgetStateProperty.resolveWith<Icon?>((Set<WidgetState> states) {
+                            thumbIcon: WidgetStateProperty.resolveWith<Icon?>((
+                              Set<WidgetState> states,
+                            ) {
                               if (states.contains(WidgetState.selected)) {
-                                return const Icon(Icons.speed); // 꺼졌을 때 아이콘 (필요 없으면 null)
+                                return const Icon(
+                                  Icons.speed,
+                                ); // 꺼졌을 때 아이콘 (필요 없으면 null)
                               }
                               return const Icon(Icons.eco); // 켜졌을 때 아이콘
                             }),

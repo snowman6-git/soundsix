@@ -1,5 +1,7 @@
-# 모든 파일을 외부 라이브러리(통계 제외)로 취급
-* linguist-vendored
-
-# 특정 폴더(예: Flutter의 lib 폴더)만 통계에 다시 포함
-lib/** linguist-vendored=false
+# .gitattributes 파일 내용
+/android/* linguist-vendored
+/ios/* linguist-vendored
+/windows/* linguist-vendored
+/macos/* linguist-vendored
+/linux/* linguist-vendored
+/web/* linguist-vendored

@@ -1,0 +1,5 @@
+# ios 및 android 폴더를 통계에서 제외
+ios/* linguist-vendored android/* linguist-vendored
+
+# 특정 확장자(C++)를 통계에서 제외
+*.cpp linguist-vendored *.h linguist-vendored *.mm linguist-vendored

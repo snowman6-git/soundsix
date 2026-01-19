@@ -17,6 +17,7 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       //중간
+      backgroundColor: Color(0xff252525), //#0ㅌ:#. FF: opacity
       body: Column(
         children: [
           // 리:다이브
@@ -171,7 +172,6 @@ class _HomePage extends State<HomePage> {
                           Text(
                             _isoutDoor ? 'Out Door' : 'In Door',
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -230,7 +230,6 @@ class _HomePage extends State<HomePage> {
                           Text(
                             _isDataSaver ? 'FullStream' : 'DataSaver',
                             style: TextStyle(
-                              color: Colors.black,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:soundsix/components/song_tile.dart';
 import 'package:soundsix/models/music_data.dart';
+import 'package:soundsix/lib/songlist.dart';
 
 class SongPage extends StatelessWidget {
   const SongPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     // 1. 데이터 준비 (Svelte의 let songs = [...])
+
+    var songlist = selectMusicFolder();
+    print(songlist);
+
     final List<MusicData> dummySongs = [
       MusicData(
         title: "Here is title",
